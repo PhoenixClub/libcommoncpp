@@ -1179,7 +1179,7 @@ UString& UString::append(const int64_t& val)
 {
   char buf[32];
 
-  ::snprintf(buf, CCXX_LENGTHOF(buf), "%lld", val);
+  ::snprintf(buf, CCXX_LENGTHOF(buf), "%lld", (long long)val);
   append(UString(buf));
 
   return(*this);
@@ -1192,7 +1192,7 @@ UString& UString::append(const uint64_t& val)
 {
   char buf[32];
 
-  ::snprintf(buf, CCXX_LENGTHOF(buf), "%llu", val);
+  ::snprintf(buf, CCXX_LENGTHOF(buf), "%llu", (long long unsigned)val);
   append(UString(buf));
 
   return(*this);
@@ -1223,7 +1223,7 @@ void UString::_release()
 /*
  */
 
-void UString::_makeCopy(uint_t size, bool unshareable /* = false */)
+void UString::_makeCopy(size_t size, bool unshareable /* = false */)
 {
   if(_buf->_refs > 1) // and implicitly != -1 (unshareable)
   {

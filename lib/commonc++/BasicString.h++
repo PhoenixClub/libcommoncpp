@@ -1062,7 +1062,7 @@ template<typename T> class BasicStringVec
 
   /** Append operator. Pushes a string onto the end (back) of the vector. */
   inline BasicStringVec<T>& operator<<(BasicString<T> s)
-  { push_back(s); return(*this); }
+  { this->push_back(s); return(*this); }
 
   /** An empty BasicStringVec. */
   static const BasicStringVec<T> emptyVec;
